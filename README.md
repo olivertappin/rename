@@ -1,3 +1,7 @@
+[![Latest Version](https://img.shields.io/github/tag/olivertappin/rename.svg?style=flat&label=release)](https://github.com/olivertappin/rename/tags)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE.md)
+[![GitHub issues](https://img.shields.io/github/issues/olivertappin/rename.svg)](https://github.com/olivertappin/rename/issues)
+
 # Rename
 Rename multiple files with numbered endings
 
