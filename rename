@@ -1,0 +1,36 @@
+#!/bin/bash
+COUNT=0;
+DIRECTORY=$(dirname "$0")
+INPUT=$DIRECTORY/unnamed
+OUTPUT=$DIRECTORY/named
+
+echo 'Please enter the file name'
+read FILENAME
+
+echo 'Please enter the separator (leave blank for a space)'
+read SEPARATOR
+
+if [[ -z $SEPARATOR ]]; then
+    SEPARATOR=" "
+fi
+
+if [[ ! -d $INPUT ]]; then
+    echo "Input directory does not exist. Creating directory..."
+    mkdir -p $INPUT
+    echo "Directory created. Please place your files in the following directory: " $INPUT
+    exit 1
+fi
+
+if [[ ! -d $OUTPUT ]]; then
+    echo "Output directory does not exist. Creating directory..."
+    mkdir -p $OUTPUT
+    echo "Directory created. Please retrieve your photos from the following directory: " $OUTPUT
+fi
+
+for FILE in $INPUT/*; do
+    let COUNT=COUNT+1;
+    EXTENSION=`echo $FILE | rev | cut -f 1 -d '.' | rev`
+    RENAMED=`echo $OUTPUT/$FILENAME$SEPARATOR$COUNT.$EXTENSION`
+    cp "$FILE" "$RENAMED"
+done
+
